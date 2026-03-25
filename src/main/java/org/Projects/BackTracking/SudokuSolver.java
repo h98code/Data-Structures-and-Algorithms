@@ -1,6 +1,8 @@
 package org.Projects.BackTracking;
 
 public class SudokuSolver {
+
+
     public void solveSudoku(char[][] board) {
         helper(board);
     }
