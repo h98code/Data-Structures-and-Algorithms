@@ -47,4 +47,37 @@ public class MaximumConsOnesIII {
 
         return ans;
     }
+
+
+    // standard sliding window template
+
+    //replace the while with a if to make it more optimised.
+    public int longestOnes_varSizedWindow(int[] nums, int k) {
+
+
+        // number of 1's in the window --> variable sized window
+        // when the number of flips are > k we move the window from left
+
+        int ans = 0;
+        int leftPtr = 0;
+        int flips = 0;
+
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] == 0){
+                flips++;
+            }
+
+            while(flips > k){
+                if(nums[leftPtr] == 0){
+                    flips--;
+                }
+
+                leftPtr++;
+            }
+
+            ans = Math.max(ans, i - leftPtr + 1);
+        }
+
+        return ans;
+    }
 }
