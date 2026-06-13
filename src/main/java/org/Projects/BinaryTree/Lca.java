@@ -1,14 +1,8 @@
 package org.Projects.BinaryTree;
 
+import org.Projects.Util.TreeNode;
+
 public class Lca {
-
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) { val = x; }
-    }
 
     // function returns treenode if p or q are found else return null,
     // if both are found then it returns the lca.
