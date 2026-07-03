@@ -1,22 +1,8 @@
 package org.Projects.Recursion;
 
+import org.Projects.Util.ListNode;
+
 public class MergeTwoLL {
-    
-    public static class ListNode {
-        int val;
-        ListNode next;
-        
-        ListNode() {}
-        
-        ListNode(int val) {
-            this.val = val;
-        }
-        
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     // TC = O(L1 + L2) --> since the lists are merged node by node.
     // SC = O(L1 + L2) --> recursion depth.
