@@ -6,33 +6,22 @@ public class DailyTempratures {
 
     // TC = O(N)
     // SC = O(N)
-    public int[] dailyTemperatures(int[] tempratures) {
+    public int[] dailyTemperatures(int[] temp) {
+        // calculate nge index
 
-        // stack to store the index of the next greater element
         Stack<Integer> stk = new Stack<>();
+        int[] nge = new int[temp.length];
 
-        int[] ngei = new int[tempratures.length];
-        int ptr = ngei.length - 1;
-
-        for(int i=tempratures.length - 1; i>=0; i--){
-
-            int curr = tempratures[i];
-
-            while(!stk.isEmpty() && tempratures[stk.peek()] <= curr)
+        for(int i=temp.length - 1; i >= 0; i--) {
+            while(!stk.isEmpty() && temp[stk.peek()] <= temp[i]) {
                 stk.pop();
+            }
 
-            ngei[ptr--] = stk.isEmpty() ? -1 : stk.peek();
+            nge[i] = stk.isEmpty() ? 0 : stk.peek() - i;
+
             stk.push(i);
         }
 
-        for(int i=0; i<ngei.length; i++){
-            if(ngei[i] == -1) {
-                ngei[i] = 0;
-            } else {
-                ngei[i] -= i;
-            }
-        }
-
-        return ngei;
+        return nge;
     }
 }
